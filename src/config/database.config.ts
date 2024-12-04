@@ -1,14 +1,15 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { User } from 'src/users/users.entity';
 
 const databaseConfig = (): TypeOrmModuleOptions => ({
-  type: 'postgres', // or 'postgres', 'sqlite', etc.
-  host: 'localhost', // Change as needed
-  port: 5432, // Default MySQL port; change if using a different DB
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
   username: 'postgres',
   password: '1234',
   database: 'nestjs',
   synchronize: true,
-  entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+  entities: [User],
 });
 
 export default databaseConfig;
